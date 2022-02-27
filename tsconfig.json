@@ -1,0 +1,25 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "noEmit": true,
+    "esModuleInterop": true,
+    "module": "ES2020",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "jsx": "preserve",
+    "incremental": true,
+    "baseUrl": ".",
+    "paths": {
+      "gray-matter": ["src/@types/gray-matter"],
+      "@/*": ["src/*"]
+    }
+  },
+  "include": ["next-env.d.ts", "gray-matter.d.ts", "**/*.ts", "**/*.tsx"],
+  "exclude": ["node_modules"]
+}

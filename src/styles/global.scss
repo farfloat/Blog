@@ -1,0 +1,55 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Lato:ital,wght@0,400;1,300&family=Quicksand:wght@400;500&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+  font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN",
+    "Hiragino Sans", Meiryo, sans-serif;
+}
+
+body {
+  font-size: 1.5rem;
+}
+
+.toggle_container {
+  position: relative;
+
+  &::before,
+  &::after {
+    content: "";
+    width: 100%;
+    height: 2px;
+    position: absolute;
+    top: 50%;
+    @apply bg-white transition-transform;
+  }
+
+  &::before {
+    transform: translate(0, -5px);
+  }
+  &::after {
+    transform: translate(0, 5px);
+  }
+
+  &.isActive {
+    &::before {
+      transform: rotate(45deg);
+    }
+    &::after {
+      transform: rotate(-45deg);
+    }
+  }
+}
+
+p > code {
+  @apply bg-sky-50 px-2 mx-1 italic rounded dark:bg-slate-700;
+}
+
+.highlight-line {
+  @apply bg-slate-600 -mr-8 -ml-8;
+}
