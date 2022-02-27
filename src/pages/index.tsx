@@ -17,12 +17,12 @@ const Home = ({ posts }: { posts: PostMetaProps[] }) => {
           </h1>
 
           <section className="mt-8 mb-6">
-            <div className="px-4 grid grid-cols-3 gap-8">
+            <div className="px-4 grid grid-cols-1 md:grid-cols-3 gap-8">
               {posts &&
                 posts.map(({ title, createdAt, description, slug }) => {
                   return (
                     <Link href={`/post/${slug}`} key={slug}>
-                      <a className="group block px-6 py-4 border border-slate-200 dark:border-slate-700 rounded-lg">
+                      <a className="group block px-6 border border-slate-200 dark:border-slate-700 rounded-lg">
                         <article className="pt-8 pb-3">
                           <h2 className="group-hover:text-slate-500 dark:group-hover:text-slate-400 transition-colors inline-block text-base md:text-md font-semibold text-slate-600 dark:text-slate-300 tracking-wide">
                             {title}
