@@ -23,7 +23,7 @@ export type PostProps = {
 
 export type SeoProps = {
   title?: string;
-  desc?: string;
+  description?: string;
   canonical?: string;
 };
 

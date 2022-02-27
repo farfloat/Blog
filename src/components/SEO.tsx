@@ -1,12 +1,14 @@
 import { SeoProps } from "@/@types";
 import { NextSeo } from "next-seo";
 
-const SEO = ({ title, desc, canonical }: SeoProps) => {
+const SEO = ({ title, description, canonical }: SeoProps) => {
   return (
     <NextSeo
       title={title}
-      description={desc || "This is desc"}
-      canonical={process.env.NEXT_PUBLIC_SEO_CANONICAL || canonical}
+      description={
+        description ||
+        "主にReactJSを使って作ったもの、学んだことを書き留めています"
+      }
     />
   );
 };

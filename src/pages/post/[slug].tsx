@@ -12,13 +12,13 @@ import SocialContainer from "@/components/Social";
 
 const Post = ({ content, frontmatter, slug }: PostProps) => {
   const MDX = useMemo(() => getMDXComponent(content), [content]);
-  const { title, createdAt } = frontmatter;
+  const { title, description, createdAt } = frontmatter;
   const siteUrl = process.env.NEXT_PUBLIC_SITE_URL;
 
   return (
     <PostLayout>
       <div className="pt-16 md:pt-24">
-        <SEO {...{ title }} />
+        <SEO {...{ title, description }} />
         <div className="px-8 mx-auto md:max-w-screen-sm lg:max-w-screen-md">
           <h1 className="font-semibold text-lg md:text-2xl leading-10 mb-3 md:mb-6 text-slate-700 dark:text-slate-300">
             {title}

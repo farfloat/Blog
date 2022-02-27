@@ -10,7 +10,7 @@ function MyApp({ Component, pageProps }: AppProps) {
   const gtmId = process.env.NEXT_PUBLIC_GTM_ID;
   useEffect(() => {
     gtmId && TagManager.initialize({ gtmId });
-  }, []);
+  }, [gtmId]);
 
   return (
     <ThemeProvider attribute="class">
