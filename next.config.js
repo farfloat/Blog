@@ -4,7 +4,7 @@
 const nextConfig = {
   /* config options here */
   images: {
-    domains: [process.env.NEXT_PUBLIC_DELIVERY_URL],
+    domains: [process.env.IMAGE_DOMAIN],
   },
 };
 
