@@ -2,9 +2,8 @@
   "name": "app",
   "private": true,
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "postbuild": "next-sitemap",
+    "dev": "next",
+    "build": "next build && next-sitemap --config next-sitemap.js",
     "start": "next start",
     "lint": "next lint"
   },

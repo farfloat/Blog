@@ -3,7 +3,7 @@ User-agent: *
 Allow: /
 
 # Host
-Host: https://far-float.de
+Host: https://far-float.de/
 
 # Sitemaps
 Sitemap: https://far-float.de/sitemap.xml
