@@ -1,7 +1,4 @@
 import {
-  FacebookShareCount,
-  HatenaShareCount,
-  PinterestShareCount,
   RedditShareCount,
   EmailShareButton,
   EmailIcon,

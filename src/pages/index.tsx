@@ -46,7 +46,7 @@ const Home = ({ posts }: { posts: PostMetaProps[] }) => {
   );
 };
 
-export const getStaticProps: GetStaticProps = async ({ params }) => {
+export const getStaticProps: GetStaticProps = async () => {
   const data = allPosts();
 
   return {

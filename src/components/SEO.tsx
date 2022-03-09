@@ -1,7 +1,7 @@
 import { SeoProps } from "@/@types";
 import { NextSeo } from "next-seo";
 
-const SEO = ({ title, description, canonical }: SeoProps) => {
+const SEO = ({ title, description }: SeoProps) => {
   const url = process.env.NEXT_PUBLIC_SITE_URL || "";
   const logoUrl = process.env.NEXT_PUBLIC_DELIVERY_URL || "";
 

@@ -4,10 +4,10 @@ import { Sun } from "@styled-icons/bootstrap/Sun";
 import { MoonFill } from "@styled-icons/bootstrap/MoonFill";
 import { useEffect, useState } from "react";
 import Image from "next/image";
-import { useRouter } from "next/router";
+// import { useRouter } from "next/router";
 
 const Header = () => {
-  const router = useRouter();
+  // const router = useRouter();
   // const [isActive, toggle] = useState(false);
   const [themIcon, setThemeIcon] = useState<JSX.Element | null>(null);
   const { theme, setTheme } = useTheme();
