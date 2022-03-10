@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { visit } from "unist-util-visit";
 
 interface MetaProps {
@@ -5,7 +6,7 @@ interface MetaProps {
 }
 
 export const extractMetaString = () => {
-  return (tree: any, index: any) => {
+  return (tree: any) => {
     visit(tree, "element", (node) => {
       if (node.type === "element" && node.tagName === "code" && node.data) {
         const meta = node.data.meta.split(/\s/g) as string[];

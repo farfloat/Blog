@@ -1,11 +1,15 @@
 {
-  "name": "app",
+  "name": "blog",
   "private": true,
   "scripts": {
     "dev": "next",
     "build": "next build && next-sitemap --config next-sitemap.js",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "lint:fix": "eslint src --ext .js,jsx,.ts,.tsx --fix",
+    "format": "prettier --write --ignore-path .gitignore './**/*.{js,jsx,ts,tsx,json,css}'",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
   },
   "dependencies": {
     "@codemirror/lang-markdown": "^0.19.6",
@@ -15,8 +19,10 @@
     "@mdx-js/runtime": "^1.6.22",
     "@styled-icons/bootstrap": "^10.34.0",
     "@styled-icons/boxicons-solid": "^10.38.0",
+    "@styled-icons/material": "^10.34.0",
     "@styled-icons/material-outlined": "^10.34.0",
     "@styled-icons/material-rounded": "^10.34.0",
+    "@styled-icons/zondicons": "^10.18.0",
     "@types/react-copy-to-clipboard": "^5.0.2",
     "@types/react-gtm-module": "^2.0.1",
     "@uiw/react-codemirror": "^4.5.1",
@@ -47,7 +53,15 @@
     "yup": "^0.32.11"
   },
   "devDependencies": {
+    "@babel/core": "^7.17.5",
     "@mdx-js/loader": "^2.0.0",
+    "@storybook/addon-actions": "^6.4.19",
+    "@storybook/addon-essentials": "^6.4.19",
+    "@storybook/addon-interactions": "^6.4.19",
+    "@storybook/addon-links": "^6.4.19",
+    "@storybook/addon-postcss": "^2.0.0",
+    "@storybook/react": "^6.4.19",
+    "@storybook/testing-library": "^0.0.9",
     "@types/is-hotkey": "^0.1.7",
     "@types/js-yaml": "^4.0.5",
     "@types/mdx-js__react": "^1.5.5",
@@ -59,10 +73,12 @@
     "@typescript-eslint/eslint-plugin-tslint": "^5.14.0",
     "@typescript-eslint/parser": "^5.14.0",
     "autoprefixer": "^10.4.2",
+    "babel-loader": "^8.2.3",
     "babel-plugin-superjson-next": "^0.4.3",
     "eslint": "8.10.0",
     "eslint-config-next": "12.1.0",
     "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-storybook": "^0.5.7",
     "next-sitemap": "^2.5.1",
     "postcss": "^8.4.7",
     "prettier": "^2.5.1",

@@ -1,3 +1,4 @@
+// eslint-disable-next-line
 const defaultTheme = require("tailwindcss/defaultTheme");
 
 /**
@@ -24,6 +25,7 @@ module.exports = {
     extend: {
       fontFamily: {
         inter: ["Inter", ...defaultTheme.fontFamily.sans],
+        source: ["Fira Code", ...defaultTheme.fontFamily.sans],
       },
     },
   },

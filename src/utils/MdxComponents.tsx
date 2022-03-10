@@ -1,12 +1,8 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import Image from "next/image";
 import CodeBlock from "@/components/Code";
 import { QuoteLeft } from "@styled-icons/boxicons-solid/QuoteLeft";
 import { QuoteRight } from "@styled-icons/boxicons-solid/QuoteRight";
-
-interface Props {
-  src: string;
-  alt: string;
-}
 
 export const MdxComponents = {
   h1: (props: any) => (
@@ -35,7 +31,7 @@ export const MdxComponents = {
       );
     } else {
       return (
-        <p className="mb-12 md:mb-14 text-tiny md:text-base leading-9 md:leading-10 text-slate-700 dark:text-slate-300">
+        <p className="mb-12 md:mb-14 text-tiny md:text-[1.6rem] leading-10 md:leading-[3rem] text-slate-700 dark:text-slate-300">
           {children}
         </p>
       );

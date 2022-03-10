@@ -1,9 +1,13 @@
 const Footer = () => {
   return (
-    <div className="mt-4 shadow">
-      <p className="text-center text-slate-600 dark:text-slate-400 text-xs py-2">
-        &#169; Far Float
-      </p>
+    <div className="mt-10">
+      <div className="bg-slate-50 dark:bg-slate-700 py-10">
+        <div>
+          <p className="text-center text-slate-600 dark:text-slate-300 text-tiny font-inter">
+            &#169; Far Float
+          </p>
+        </div>
+      </div>
     </div>
   );
 };

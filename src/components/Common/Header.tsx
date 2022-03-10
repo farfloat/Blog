@@ -19,7 +19,7 @@ const Header = () => {
   }, [theme]);
 
   return (
-    <div className="w-full py-4 shadow dark:shadow-md bg-slate-50 dark:bg-slate-800">
+    <div className="w-full py-4 shadow dark:shadow-md bg-white dark:bg-slate-800">
       <div className="flex items-center px-8 md:px-10">
         <div className="text-slate-600 dark:text-slate-400">
           <Link href="/">
