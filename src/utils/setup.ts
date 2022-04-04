@@ -17,11 +17,13 @@ export const SetUp = async (slug: string) => {
   const { code, frontmatter } = await bundleMDX<frontmatterProps>({
     source: raw,
     cwd: join(process.cwd(), "content", slug),
-    xdmOptions: (options) => ({
-      ...options,
-      remarkPlugins: [...(options.remarkPlugins ?? []), remarkMdxImages],
-      rehypePlugins: [...(options.rehypePlugins ?? []), extractMetaString],
-    }),
+    mdxOptions(options, frontmatter) {
+      return {
+        ...options,
+        remarkPlugins: [...(options.remarkPlugins ?? []), remarkMdxImages],
+        rehypePlugins: [...(options.rehypePlugins ?? []), extractMetaString],
+      };
+    },
     esbuildOptions: (options) => ({
       ...options,
       outdir: join(process.cwd(), "/public/images", slug),

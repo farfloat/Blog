@@ -13,10 +13,12 @@ function MyApp({ Component, pageProps }: AppProps) {
   }, [gtmId]);
 
   return (
-    <ThemeProvider attribute="class">
+    // <ThemeProvider attribute="class">
+    <div>
       <DefaultSeo defaultTitle="Far Float" titleTemplate="%s | Far Float" />
       <Component {...pageProps} />
-    </ThemeProvider>
+    </div>
+    // </ThemeProvider>
   );
 }
 
