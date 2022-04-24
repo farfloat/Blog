@@ -8,10 +8,7 @@ const SEO = ({ title, description }: SeoProps) => {
   return (
     <NextSeo
       title={title}
-      description={
-        description ||
-        "主にReactJSを使って作ったもの、学んだことを書き留めています"
-      }
+      description={description || "主にReactJSを使って作ったもの、学んだことを書き留めています"}
       openGraph={{
         type: "website",
         url,

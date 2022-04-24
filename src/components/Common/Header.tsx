@@ -13,9 +13,7 @@ const Header = () => {
   const { theme, setTheme } = useTheme();
 
   useEffect(() => {
-    setThemeIcon(
-      theme === "light" ? <Sun size={15} /> : <MoonFill size={15} />
-    );
+    setThemeIcon(theme === "light" ? <Sun size={15} /> : <MoonFill size={15} />);
   }, [theme]);
 
   return (
@@ -36,14 +34,14 @@ const Header = () => {
             onClick={() => toggle(!isActive)}
           ></div>
         </div> */}
-        <div className="flex flex-1 justify-end">
+        {/* <div className="flex flex-1 justify-end">
           <div
             onClick={() => setTheme(theme === "light" ? "dark" : "light")}
             className="cursor-pointer max-w-[5rem] w-full"
           >
             {themIcon}
           </div>
-        </div>
+        </div> */}
       </div>
     </div>
   );

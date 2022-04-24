@@ -39,8 +39,7 @@ export const MdxComponents = {
   },
   pre: ({ children }: any) => {
     const child = children.props;
-    const metaString =
-      child.data && (JSON.parse(child.data) as { [key: string]: string });
+    const metaString = child.data && (JSON.parse(child.data) as { [key: string]: string });
     const title = metaString?.title;
 
     if (children.type === "code") {
@@ -73,23 +72,15 @@ export const MdxComponents = {
     />
   ),
   em: (props: any) => <em className="font-semibold italic" {...props} />,
-  strong: (props: any) => (
-    <strong className="font-semibold not-italic" {...props} />
-  ),
+  strong: (props: any) => <strong className="font-semibold not-italic" {...props} />,
   blockquote: (props: any) => {
     return (
       <blockquote
         className="rounded relative text-tiny md:text-base leading-9 bg-slate-200 px-8 py-16 my-16 md:px-20 md:py-16 md:my-20 dark:bg-slate-700 dark:text-slate-300 max-w-6xl mx-auto"
         {...props}
       >
-        <QuoteLeft
-          size={25}
-          className="absolute top-4 left-4 opacity-80 text-slate-500"
-        />
-        <QuoteRight
-          size={25}
-          className="absolute bottom-4 right-4 opacity-80 text-slate-500"
-        />
+        <QuoteLeft size={25} className="absolute top-4 left-4 opacity-80 text-slate-500" />
+        <QuoteRight size={25} className="absolute bottom-4 right-4 opacity-80 text-slate-500" />
         <div className="">{props.children}</div>
       </blockquote>
     );

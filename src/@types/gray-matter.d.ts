@@ -15,17 +15,14 @@ import { frontmatterProps } from ".";
  * @return {Object}
  * @api public
  */
-declare function matter<
-  I extends matter.Input,
-  O extends matter.GrayMatterOption<I, O>
->(input: I | { content: I }, options?: O): matter.GrayMatterFile<I>;
+declare function matter<I extends matter.Input, O extends matter.GrayMatterOption<I, O>>(
+  input: I | { content: I },
+  options?: O
+): matter.GrayMatterFile<I>;
 
 declare namespace matter {
   type Input = string | Buffer;
-  interface GrayMatterOption<
-    I extends Input,
-    O extends GrayMatterOption<I, O>
-  > {
+  interface GrayMatterOption<I extends Input, O extends GrayMatterOption<I, O>> {
     parser?: () => void;
     eval?: boolean;
     excerpt?: boolean | ((input: I, options: O) => string);

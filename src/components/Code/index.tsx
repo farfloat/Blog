@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import Highlight, { Prism } from "prism-react-renderer";
 import themeDark from "prism-react-renderer/themes/palenight";
-import { CopyToClipboard } from "react-copy-to-clipboard";
+// import { CopyToClipboard } from "react-copy-to-clipboard";
 import { LinesToHighlight } from "react-mdx-prism-lighter";
 import { CodeBlockProps } from "@/@types";
 const HighlightClassName = " highlight-line";
@@ -10,9 +10,9 @@ const CodeBlock = ({ codeString, language = "javascript", title }: CodeBlockProp
   const [value, setValues] = useState(["Copy", false]);
   const timerRef = useRef<NodeJS.Timeout | null>(null);
 
-  const CopyText = () => {
-    setValues(["Copied", true]);
-  };
+  // const CopyText = () => {
+  //   setValues(["Copied", true]);
+  // };
 
   useEffect(() => {
     timerRef.current = setTimeout(() => setValues(["Copy", false]), 5000);
@@ -39,11 +39,11 @@ const CodeBlock = ({ codeString, language = "javascript", title }: CodeBlockProp
               className="relative shadow-sm rounded-md group"
               style={{ backgroundColor: bgColor }}
             >
-              <CopyToClipboard text={codeString} onCopy={CopyText}>
+              {/* <CopyToClipboard text={codeString} onCopy={CopyText}>
                 <div className="absolute right-4 top-2 cursor-pointer rounded-lg  group-hover:text-slate-200 text-slate-400 text-tiny md:text-base py-1 px-2 transition duration-300 ease-in-out font-source">
                   {value[0]}
                 </div>
-              </CopyToClipboard>
+              </CopyToClipboard> */}
               <pre className="px-0 pt-8 pb-6 overflow-auto scrolls">
                 <div className="text-tiny md:text-base md:tracking-tight text-slate-900 px-8 float-left block min-w-full font-source font-light">
                   {tokens.map((line, index) => {
