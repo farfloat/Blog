@@ -1,48 +1,52 @@
-import { useTheme } from "next-themes";
-import Link from "next/link";
-import { Sun } from "@styled-icons/bootstrap/Sun";
-import { MoonFill } from "@styled-icons/bootstrap/MoonFill";
-import { useEffect, useState } from "react";
-import Image from "next/image";
-// import { useRouter } from "next/router";
+import { Spin as Hamburger } from "hamburger-react";
+import { useState } from "react";
+import dynamic from "next/dynamic";
+
+const Portal = dynamic(() => import("@/components/Portal/indxe"), {
+  ssr: false,
+});
 
 const Header = () => {
-  // const router = useRouter();
-  // const [isActive, toggle] = useState(false);
-  const [themIcon, setThemeIcon] = useState<JSX.Element | null>(null);
-  const { theme, setTheme } = useTheme();
-
-  useEffect(() => {
-    setThemeIcon(theme === "light" ? <Sun size={15} /> : <MoonFill size={15} />);
-  }, [theme]);
+  const [isOpen, setOpen] = useState(false);
 
   return (
-    <div className="w-full py-4 shadow dark:shadow-md bg-white dark:bg-slate-800">
-      <div className="flex items-center px-8 md:px-10">
-        <div className="text-slate-600 dark:text-slate-400">
-          <Link href="/">
-            <a className="flex items-center">
-              <Image src="/Float.png" width={34} height={34} alt="" />
-            </a>
-          </Link>
-        </div>
-        {/* <div className="flex-1 flex justify-end">
-          <div
-            className={`w-10 h-10 cursor-pointer focus:outline-none toggle_container ${
-              isActive ? `isActive` : ""
-            }`}
-            onClick={() => toggle(!isActive)}
-          ></div>
-        </div> */}
-        {/* <div className="flex flex-1 justify-end">
-          <div
-            onClick={() => setTheme(theme === "light" ? "dark" : "light")}
-            className="cursor-pointer max-w-[5rem] w-full"
-          >
-            {themIcon}
-          </div>
-        </div> */}
+    <div className="w-full py-4 bg-slate-50 h-[60px]">
+      <div
+        className="flex justify-end px-3 md:px-10 right-0 duration-200"
+        style={{
+          position: isOpen ? "fixed" : "relative",
+          zIndex: 1000,
+        }}
+      >
+        <Hamburger
+          toggled={isOpen}
+          toggle={setOpen}
+          size={24}
+          distance="sm"
+          color="#34454E"
+          label="Show menu list"
+          rounded
+        />
       </div>
+      <Portal id="menu-portal">
+        <div
+          className="fixed w-full h-full bg-slate-600 bg-opacity-30 duration-200"
+          onClick={() => setOpen(false)}
+          style={{
+            visibility: isOpen ? "visible" : "hidden",
+            opacity: isOpen ? 1 : 0,
+            zIndex: 1000,
+          }}
+        >
+          <div
+            className="fixed right-0 h-full w-[32rem] bg-white duration-200 shadow-xl"
+            onClick={(e) => e.stopPropagation()}
+            style={{
+              transform: isOpen ? `translateX(0)` : `translate(100%)`,
+            }}
+          ></div>
+        </div>
+      </Portal>
     </div>
   );
 };

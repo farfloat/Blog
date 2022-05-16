@@ -20,11 +20,11 @@ const Post = ({ content, frontmatter, slug }: PostProps) => {
       <div className="pt-16 md:pt-24">
         <SEO {...{ title, description }} />
         <div className="px-8 mx-auto md:max-w-screen-sm lg:max-w-screen-md">
-          <h1 className="font-semibold text-lg md:text-2xl leading-10 mb-3 md:mb-6 text-slate-700 dark:text-slate-300">
+          <h1 className="text-center font-semibold text-[3rem] leading-normal md:leading-relaxed text-slate-700 mb-20">
             {title}
           </h1>
-          <time className="block text-xs md:text-sm text-slate-600 dark:text-slate-400">
-            {moment(createdAt).format("YYYY年M月D日")}
+          <time className="block text-[1.3rem] text-slate-500 italic">
+            <span className="text-[1.1rem]">Created At</span> {moment(createdAt).format("YYYY.M.D")}
           </time>
           <div className="mt-6 md:mt-10 text-slate-700 dark:text-slate-300">
             <MDX components={MdxComponents} />

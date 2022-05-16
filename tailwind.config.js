@@ -10,6 +10,7 @@ module.exports = {
   content: ["./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     fontSize: {
+      variety: "1.3rem",
       xs: "1.2rem",
       tiny: "1.3rem",
       sm: "1.4rem",
@@ -25,6 +26,7 @@ module.exports = {
     extend: {
       fontFamily: {
         inter: ["Inter", ...defaultTheme.fontFamily.sans],
+        M_PLUS: ["M PLUS 1", ...defaultTheme.fontFamily.sans],
         source: ["Fira Code", ...defaultTheme.fontFamily.sans],
       },
     },

@@ -1,81 +1,106 @@
 import type { GetStaticProps } from "next";
-import Link from "next/link";
+import Image from "next/image";
 import SEO from "@/components/SEO";
 import DefaultLayout from "@/layouts/default";
 import { allPosts, sortbyDate } from "@/utils/allPost";
 import moment from "moment";
 import { PostMetaProps } from "@/@types";
-import { Update } from "@styled-icons/material/Update";
+// import { Update } from "@styled-icons/material/Update";
 import { AccessTime } from "@styled-icons/material/AccessTime";
+import { listTags } from "@/utils/listTags";
+import { listCategories } from "@/utils/listCategories";
+import { useRouter } from "next/router";
+import { Mixpanel } from "@/mixpanel";
 
-const Home = ({ posts }: { posts: PostMetaProps[] }) => {
+const Home = ({
+  posts,
+}: // tags,
+// categories,
+{
+  posts: PostMetaProps[];
+  tags: string[];
+  categories: string[];
+}) => {
+  const router = useRouter();
+
+  const LinkToLink = (slug: string) => {
+    router.push(`/post/${slug}`);
+    Mixpanel.track("Link to Blog", {
+      source: slug,
+    });
+  };
+
   return (
     <DefaultLayout>
       <div className="pt-12 md:pt-24">
         <SEO title="Blog" />
-        <div className="px-4 mx-auto  md:max-w-screen-sm lg:max-w-screen-md">
-          <h1 className="text-5xl text-slate-700 dark:text-slate-200 font-semibold">Blog</h1>
-          <section className="mt-8 mb-6">
-            <div className="px-4">
+        <div className="px-6 md:px-4 mx-auto  md:max-w-screen-sm lg:max-w-[980px]">
+          <div className="flex justify-center mt-20 mb-32 md:mb-40">
+            <div className="flex">
+              <div className="flex">
+                <div className="mr-8 flex flex-col items-end">
+                  <div className="font-inter text-[1.9rem] font-medium text-slate-800">Reo Yamashita</div>
+                  <div className="font-inter text-[1.3rem] text-slate-600">Front End Engineer</div>
+                </div>
+                <div className="h-[70px] w-[70px] rounded-full overflow-hidden border border-slate-100">
+                  <Image src="/far_float.png" height={75} width={75} alt="" />
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="mt-16 md:mt-24">
+            <h1 className="font-inter text-[4rem] text-slate-800 font-bold tracking-wide">Snippets</h1>
+            <div className="mt-8">
               {posts &&
-                posts.map(({ title, createdAt, updatedAt, description, slug, tags }) => {
+                posts.map(({ title, createdAt, description, slug, tags }) => {
                   return (
-                    <Link href={`/post/${slug}`} key={slug}>
-                      <a className="block w-full border-b border-slate-200 dark:border-slate-500">
-                        <article className="pt-8 pb-4 relative">
-                          <h2 className="inline-block text-lg md:text-2xl font-semibold text-slate-700 dark:text-slate-200 tracking-wide">
-                            {title}
-                          </h2>
-                          <p className="pt-6 pb-6 md:pb-8 text-slate-600 dark:text-slate-300 md:text-md tracking-wide leading-8 font-normal">
-                            {description}
-                          </p>
-                          <div className="flex flex-wrap gap-4">
-                            {tags.map((tag) => {
+                    <article
+                      className="pt-8 pb-4 px-3 md:px-8 relative cursor-pointer"
+                      key={slug}
+                      onClick={() => LinkToLink(slug)}
+                    >
+                      <div className="block w-ful">
+                        <h2 className="inline-block text-[1.8rem] md:text-[2rem] font-semibold text-slate-700 tracking-wide">
+                          {title}
+                        </h2>
+                        <p className="md:pb-4 pt-4 text-slate-700 leading-8 tracking-wide text-sm md:text-base">
+                          {description}
+                        </p>
+                        <div className="mb-2 md:mb-4 mt-8 flex flex-wrap gap-4">
+                          {tags &&
+                            tags.map((tag) => {
                               return (
                                 <div
                                   key={tag}
-                                  className="px-4 py-1 rounded border border-sky-600 dark:border-sky-600 dark:text-sky-500 text-sky-600 text-tiny"
+                                  className="px-3 py-.5 rounded border border-sky-600 dark:border-sky-600 dark:text-sky-500 text-sky-600 text-[1.2rem]"
                                 >
                                   {tag}
                                 </div>
                               );
                             })}
+                        </div>
+                        <div className="flex justify-end">
+                          <div className="flex items-center gap-6 mt-2 text-slate-500">
+                            {createdAt && (
+                              <div className="flex items-center">
+                                <AccessTime size={15} className="mr-1" />
+                                <time
+                                  dateTime={moment(createdAt).format("MMM D, YYYY")}
+                                  itemProp="datepublished"
+                                  className="block text-slate-500 text-[1.2rem] tracking-wide"
+                                >
+                                  {moment(createdAt).format("MMM D, YYYY")}
+                                </time>
+                              </div>
+                            )}
                           </div>
-                          <div className="flex justify-end">
-                            <div className="flex items-center gap-6 mt-2 text-slate-500 dark:text-slate-500 tracking-wide">
-                              {createdAt && (
-                                <div className="flex items-center">
-                                  <AccessTime size={15} className="mr-1" />
-                                  <time
-                                    dateTime={moment(createdAt).format("YYYY-M-D")}
-                                    itemProp="datepublished"
-                                    className="block"
-                                  >
-                                    {moment(createdAt).format("YYYY.M.D")}
-                                  </time>
-                                </div>
-                              )}
-                              {updatedAt && (
-                                <div className="flex items-center">
-                                  <Update size={15} className="mr-1" />
-                                  <time
-                                    dateTime={moment(updatedAt).format("YYYY-M-D")}
-                                    itemProp="modified"
-                                    className="block"
-                                  >
-                                    {moment(updatedAt).format("YYYY.M.D")}
-                                  </time>
-                                </div>
-                              )}
-                            </div>
-                          </div>
-                        </article>
-                      </a>
-                    </Link>
+                        </div>
+                      </div>
+                    </article>
                   );
                 })}
             </div>
-          </section>
+          </div>
         </div>
       </div>
     </DefaultLayout>
@@ -84,10 +109,14 @@ const Home = ({ posts }: { posts: PostMetaProps[] }) => {
 
 export const getStaticProps: GetStaticProps = async () => {
   const data = allPosts();
+  const tags = listTags();
+  const categories = listCategories();
 
   return {
     props: {
       posts: data.sort(sortbyDate),
+      tags,
+      categories,
     },
   };
 };

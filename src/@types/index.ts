@@ -10,6 +10,7 @@ export type frontmatterProps = {
   updatedAt: string;
   category: string;
   tags: string[];
+  thumbnail?: string;
   description: string;
 };
 
