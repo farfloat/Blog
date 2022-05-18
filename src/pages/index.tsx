@@ -46,6 +46,7 @@ const Home = ({
                   <Image src="/far_float.png" height={75} width={75} alt="" />
                 </div>
               </div>
+              <div></div>
             </div>
           </div>
           <div className="mt-16 md:mt-24">
