@@ -35,10 +35,7 @@ const CodeBlock = ({ codeString, language = "javascript", title }: CodeBlockProp
                 {title ? title : language}
               </div>
             )}
-            <div
-              className="relative shadow-sm rounded-md group"
-              style={{ backgroundColor: bgColor }}
-            >
+            <div className="relative shadow-sm rounded-md group" style={{ backgroundColor: bgColor }}>
               {/* <CopyToClipboard text={codeString} onCopy={CopyText}>
                 <div className="absolute right-4 top-2 cursor-pointer rounded-lg  group-hover:text-slate-200 text-slate-400 text-tiny md:text-base py-1 px-2 transition duration-300 ease-in-out font-source">
                   {value[0]}

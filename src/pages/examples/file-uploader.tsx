@@ -37,14 +37,7 @@ const FileUploader = () => {
               hover:opacity-70 transition-opacity text-sm"
             >
               Attach a File
-              <input
-                type="file"
-                id="inputFile"
-                name="inputFile"
-                accept="image/*"
-                hidden
-                onChange={onFile}
-              />
+              <input type="file" id="inputFile" name="inputFile" accept="image/*" hidden onChange={onFile} />
             </label>
             <span className="px-4">{filename}</span>
           </div>

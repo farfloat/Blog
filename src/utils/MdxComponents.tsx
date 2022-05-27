@@ -22,10 +22,7 @@ export const MdxComponents = {
     if (children.type === "img") {
       const { src, alt } = child;
       return (
-        <div
-          className="flex justify-center my-4"
-          style={{ position: "relative", width: "100%", height: 150 }}
-        >
+        <div className="flex justify-center my-4" style={{ position: "relative", width: "100%", height: 150 }}>
           <Image src={src} alt={alt} layout="fill" objectFit="contain" />
         </div>
       );
@@ -54,10 +51,7 @@ export const MdxComponents = {
     } else return <>{child}</>;
   },
   ul: (props: any) => (
-    <ul
-      className="mb-12 py-6 md:py-8 px-10 md:px-12 list-disc bg-slate-100 dark:bg-slate-700 rounded-md"
-      {...props}
-    />
+    <ul className="mb-12 py-6 md:py-8 px-10 md:px-12 list-disc bg-slate-100 dark:bg-slate-700 rounded-md" {...props} />
   ),
   ol: (props: any) => (
     <ol
