@@ -4,7 +4,7 @@
 
 const nextConfig = {
   images: {
-    domains: [process.env.IMAGE_DOMAIN],
+    domains: ["https://far-float.de"],
   },
 };
 

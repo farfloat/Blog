@@ -18,7 +18,7 @@ export const allPosts = (): PostMetaProps[] => {
     return { ...data, slug };
   });
 
-  return data;
+  return data.filter(({ isPublic }) => isPublic);
 };
 
 /**

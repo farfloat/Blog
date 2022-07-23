@@ -3,10 +3,11 @@ import Image from "next/image";
 import CodeBlock from "@/components/Code";
 import { QuoteLeft } from "@styled-icons/boxicons-solid/QuoteLeft";
 import { QuoteRight } from "@styled-icons/boxicons-solid/QuoteRight";
+import { ResearchAddress } from "@/lib/research_address";
 
 export const MdxComponents = {
   h1: (props: any) => (
-    <h2 className="text-lg md:text-xl font-semibold text-slate-700 text-opacity-95 dark:text-slate-300 pb-4 pt-5  md:py-4">
+    <h2 className="text-lg md:text-xl font-semibold text-slate-700 text-opacity-95 dark:text-slate-300 pb-4 pt-5  md:pt-10">
       {props.children}
     </h2>
   ),
@@ -28,7 +29,7 @@ export const MdxComponents = {
       );
     } else {
       return (
-        <p className="mb-12 md:mb-14 text-tiny md:text-[1.6rem] leading-10 md:leading-[3rem] text-slate-700 dark:text-slate-300">
+        <p className="break-words mb-12 md:mb-14 text-tiny md:text-[1.6rem] leading-10 md:leading-[3rem] text-slate-700 dark:text-slate-300">
           {children}
         </p>
       );
@@ -87,5 +88,8 @@ export const MdxComponents = {
         </div>
       </div>
     );
+  },
+  SearchAddress: () => {
+    return <ResearchAddress />;
   },
 };

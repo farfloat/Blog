@@ -12,6 +12,7 @@ export type frontmatterProps = {
   tags: string[];
   thumbnail?: string;
   description: string;
+  isPublic: boolean;
 };
 
 export type PostMetaProps = postIdProps & frontmatterProps;

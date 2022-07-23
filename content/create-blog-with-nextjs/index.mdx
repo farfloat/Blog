@@ -8,6 +8,7 @@ tags:
   - MDX
   - mdx-bundler
 category: プログラミング
+isPublic: false
 ---
 
 # ブログの取り扱い
@@ -80,6 +81,8 @@ export const allPosts = (): PostMetaProps[] => {
 `meta string`とはコードブロックの言語指定と、同じ行にある文字列のことを指します。(以下の画像参照)この画像では、`title=type でコンポーネント出し分け`がそれに当たります。
 
 ![プラグイン!](./Screenshot-01.png)
+
+![farfloat!](./Float.png)
 
 これを以下のプラグインで取得します。`＝`で分割し、key(以下ではわかりやすいように name としていますが)と value のペアを JSON で`properties`に注入しています。
 

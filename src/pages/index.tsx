@@ -67,7 +67,7 @@ const Home = ({
                         <p className="md:pb-4 pt-4 text-slate-700 leading-8 tracking-wide text-sm md:text-base">
                           {description}
                         </p>
-                        <div className="mb-2 md:mb-4 mt-8 flex flex-wrap gap-4">
+                        {/* <div className="mb-2 md:mb-4 mt-8 flex flex-wrap gap-4">
                           {tags &&
                             tags.map((tag) => {
                               return (
@@ -79,7 +79,7 @@ const Home = ({
                                 </div>
                               );
                             })}
-                        </div>
+                        </div> */}
                         <div className="flex justify-end">
                           <div className="flex items-center gap-6 mt-2 text-slate-500">
                             {createdAt && (

@@ -9,6 +9,7 @@ import SEO from "@/components/SEO";
 import { allPosts } from "@/utils/allPost";
 import { PostProps } from "@/@types";
 import SocialContainer from "@/components/Social";
+import Link from "next/link";
 
 const Post = ({ content, frontmatter, slug }: PostProps) => {
   const MDX = useMemo(() => getMDXComponent(content), [content]);
@@ -20,7 +21,7 @@ const Post = ({ content, frontmatter, slug }: PostProps) => {
       <div className="pt-16 md:pt-24">
         <SEO {...{ title, description }} />
         <div className="px-8 mx-auto md:max-w-screen-sm lg:max-w-screen-md">
-          <h1 className="text-center font-semibold text-[3rem] leading-normal md:leading-relaxed text-slate-700 mb-20">
+          <h1 className="text-center font-semibold text-[2.5rem] md:text-[3rem] leading-normal md:leading-relaxed text-slate-700 mb-20">
             {title}
           </h1>
           <time className="block text-[1.3rem] text-slate-500 italic">
@@ -32,6 +33,9 @@ const Post = ({ content, frontmatter, slug }: PostProps) => {
           <div className="pt-24 pb-20">
             <SocialContainer url={`${siteUrl}/post/${slug}`} size={40} />
           </div>
+          <Link href="/">
+            <a className="underline">ホームへ</a>
+          </Link>
         </div>
       </div>
     </PostLayout>

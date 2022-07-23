@@ -10,8 +10,7 @@
 
 html {
   font-size: 62.5%;
-  font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo,
-    sans-serif;
+  font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
 }
 
 body {
@@ -50,6 +49,14 @@ body {
 
 p > code {
   @apply bg-sky-50 px-2 mx-1 italic rounded dark:bg-slate-700;
+}
+
+.ex_link {
+  text-decoration: underline;
+
+  &:hover {
+    color: rgb(20, 72, 184);
+  }
 }
 
 .highlight-line {

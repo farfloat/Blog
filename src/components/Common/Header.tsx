@@ -11,7 +11,7 @@ const Header = () => {
 
   return (
     <div className="w-full py-4 bg-slate-50 h-[60px]">
-      <div
+      {/* <div
         className="flex justify-end px-3 md:px-10 right-0 duration-200"
         style={{
           position: isOpen ? "fixed" : "relative",
@@ -46,7 +46,7 @@ const Header = () => {
             }}
           ></div>
         </div>
-      </Portal>
+      </Portal> */}
     </div>
   );
 };
